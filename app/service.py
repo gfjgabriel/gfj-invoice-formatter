@@ -46,7 +46,7 @@ def filter_transactions(invoice_file: UploadFile, computed_file: UploadFile | No
 def generate_csv(transactions: list[dict]) -> StringIO:
     output = StringIO()
     writer = csv.writer(output, delimiter=";", quoting=csv.QUOTE_ALL)
-    writer.writerow(["Data", "Descricao", "Valor", "Conta", "Categoria"])
+    writer.writerow(["Data", "Descrição", "Valor", "Conta", "Categoria"])
     for tx in transactions:
         writer.writerow([tx["date"], tx["description"], tx["value"], "Carteira", "Alimentação"])
     output.seek(0)
